@@ -7,6 +7,7 @@ from random import randint
 from time import sleep
 import operator
 from data_siswa import rows
+from datetime import datetime
 
 load_dotenv()
 
@@ -207,9 +208,11 @@ for siswa in siswa_list:
         browser.find_element(By.XPATH, "//button[@class='swal2-confirm swal2-styled']").click()
         sleep(waiting_time)
 
+        timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
         f = open(environ.get('log_file'), 'a')
         f.write("\n")
-        f.write(f"""{siswa["nik"]} {siswa["nama_siswa"]}: Berhasil diinput""")
+        f.write(f"""{timestamp} :: {siswa["nik"]} - {siswa["nisn"]} - {siswa["nama_siswa"]}: Berhasil diinput""")
         f.close()
         # Repeat the proccess until the loop is done
 

@@ -11,7 +11,9 @@ from datetime import datetime
 
 load_dotenv()
 
-waiting_time = 2
+short_waiting_time  = 0.5
+medium_waiting_time = 0.7
+long_waiting_time   = 1.5
 
 # Read data source
 siswa_list = rows
@@ -78,34 +80,34 @@ for siswa in siswa_list:
     browser.find_element(By.NAME, "tgl_lhr").send_keys(Keys.ESCAPE)
     browser.find_element(By.ID, "select2-gender-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-gender-results']").send_keys(siswa["jenis_kelamin"], Keys.ENTER)
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
 
     browser.find_element(By.ID, "select2-agama-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-agama-results']").send_keys(siswa["agama"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-agama-results']").send_keys(Keys.ENTER)
 
     browser.execute_script("window.scrollTo(0, 900)")
-    sleep(waiting_time)
+    sleep(short_waiting_time)
 
     browser.find_element(By.ID, "select2-hobi-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-hobi-results']").send_keys(siswa["hobi"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-hobi-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-cita_cita-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-cita_cita-results']").send_keys(siswa["cita_cita"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-cita_cita-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-kebutuhan_khusus_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-kebutuhan_khusus_id-results']").send_keys(siswa["kebutuhan_khusus"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-kebutuhan_khusus_id-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-status_rumah_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-status_rumah_id-results']").send_keys(siswa["status_rumah"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-status_rumah_id-results']").send_keys(Keys.ENTER)
 
 
@@ -116,21 +118,21 @@ for siswa in siswa_list:
 
     browser.find_element(By.ID, "select2-pekerjaan_ayah_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pekerjaan_ayah_id-results']").send_keys(siswa["pekerjaan_ayah"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pekerjaan_ayah_id-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-pendidikan_ayah_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pendidikan_ayah_id-results']").send_keys(siswa["pendidikan_ayah"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pendidikan_ayah_id-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-penghasilan_ortu_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-penghasilan_ortu_id-results']").send_keys(siswa["rata_rata_penghasilan"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-penghasilan_ortu_id-results']").send_keys(Keys.ENTER)
 
     browser.execute_script("window.scrollTo(0, 0)")
-    sleep(waiting_time)
+    sleep(short_waiting_time)
 
 
     # Fill data ibu column
@@ -139,16 +141,16 @@ for siswa in siswa_list:
 
     browser.find_element(By.ID, "select2-pekerjaan_ibu_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pekerjaan_ibu_id-results']").send_keys(siswa["pekerjaan_ibu"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pekerjaan_ibu_id-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-pendidikan_ibu_id-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pendidikan_ibu_id-results']").send_keys(siswa["pendidikan_ibu"])
-    sleep(waiting_time)
+    sleep(medium_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-pendidikan_ibu_id-results']").send_keys(Keys.ENTER)
 
     browser.execute_script("window.scrollTo(0, 1000)")
-    sleep(waiting_time)
+    sleep(short_waiting_time)
 
 
     # Fill data alamat column
@@ -158,29 +160,29 @@ for siswa in siswa_list:
 
     browser.find_element(By.ID, "select2-cprov-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-cprov-results']").send_keys(siswa["provinsi"])
-    sleep(waiting_time)
+    sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-cprov-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-ckabko-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-ckabko-results']").send_keys(siswa["kabupaten_kota"])
-    sleep(waiting_time)
+    sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-ckabko-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-ckec-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-ckec-results']").send_keys(siswa["kecamatan"])
-    sleep(waiting_time)
+    sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-ckec-results']").send_keys(Keys.ENTER)
 
     # fill zip code with fake data because it's impossible to search on its select2
     browser.find_element(By.ID, "select2-lokasi_kodepos-container").click()
-    sleep(waiting_time)
+    sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-lokasi_kodepos-results']").send_keys(Keys.DOWN)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-lokasi_kodepos-results']").send_keys(Keys.ENTER)
 
 
     # Submit data
     browser.find_element(By.ID, "btnKirim").click()
-    sleep(waiting_time)
+    sleep(long_waiting_time)
 
 
     # Check NIK validation
@@ -188,7 +190,7 @@ for siswa in siswa_list:
         browser.find_element(By.XPATH, "//button[@class='swal2-confirm swal2-styled']").click()
 
         browser.execute_script("window.scrollTo(0, 0)")
-        sleep(waiting_time)
+        sleep(short_waiting_time)
 
         browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
         browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
@@ -197,16 +199,16 @@ for siswa in siswa_list:
         browser.find_element(By.NAME, "nik").send_keys(randint(1000,9999))
 
         browser.execute_script("window.scrollTo(0, 1000)")
-        sleep(waiting_time)
+        sleep(short_waiting_time)
 
         browser.find_element(By.ID, "btnKirim").click()
-        sleep(waiting_time)
+        sleep(long_waiting_time)
 
 
     # Check if success
     if (browser.find_element(By.ID, "swal2-html-container").text == "Data berhasil tersimpan"):
         browser.find_element(By.XPATH, "//button[@class='swal2-confirm swal2-styled']").click()
-        sleep(waiting_time)
+        sleep(long_waiting_time)
 
         timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 

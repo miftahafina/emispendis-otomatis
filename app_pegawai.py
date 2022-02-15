@@ -154,7 +154,6 @@ for pegawai in pegawai_list:
 
     # Check NIK validation
     if (browser.find_element(By.ID, "swal2-html-container").text == "NIK Sudah terdaftar, silakan lakukan penarikan data"):
-        sleep(long_waiting_time)
         browser.find_element(By.XPATH, "//button[@class='swal2-confirm swal2-styled']").click()
         sleep(long_waiting_time)
 
@@ -168,7 +167,6 @@ for pegawai in pegawai_list:
 
     # Check if success
     elif (browser.find_element(By.ID, "swal2-html-container").text == "Data berhasil tersimpan"):
-        sleep(long_waiting_time)
         browser.find_element(By.XPATH, "//button[@class='swal2-confirm swal2-styled']").click()
         sleep(long_waiting_time)
 

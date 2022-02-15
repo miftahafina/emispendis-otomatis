@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from random import randint
 from time import sleep
 import operator
-from data_siswa import rows
+from transform_data_siswa import rows
 from datetime import datetime
 
 load_dotenv()

@@ -1,5 +1,6 @@
 .env
-data_source/*
-logs/catatan.log
+data_source/
+logs/
 !data_source/sample.tsv
+!logs/.gitignore
 

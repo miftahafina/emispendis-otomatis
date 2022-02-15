@@ -75,9 +75,11 @@ for siswa in siswa_list:
     browser.find_element(By.NAME, "nisn").send_keys(siswa["nisn"])
     browser.find_element(By.NAME, "nik").send_keys(siswa["nik"])
     browser.find_element(By.NAME, "tmt_lahir").send_keys(siswa["tempat_lahir"])
+
     browser.find_element(By.NAME, "tgl_lhr").send_keys(Keys.CONTROL, 'a')
     browser.find_element(By.NAME, "tgl_lhr").send_keys(siswa["tanggal_lahir"])
     browser.find_element(By.NAME, "tgl_lhr").send_keys(Keys.ESCAPE)
+    
     browser.find_element(By.ID, "select2-gender-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-gender-results']").send_keys(siswa["jenis_kelamin"], Keys.ENTER)
     sleep(medium_waiting_time)

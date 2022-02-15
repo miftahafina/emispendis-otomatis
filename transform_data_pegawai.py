@@ -47,7 +47,7 @@ for row in csv_reader:
         "no_rekening"  : row[header.index("no_rekening")],
         "nama_rekening": row[header.index("nama_rekening")],
         "nama_bank"    : row[header.index("nama_bank")],
-        "cabang"       : row[header.index("cabang")],
+        "cabang"       : row[header.index("cabang")]
     })
 
 file.close()

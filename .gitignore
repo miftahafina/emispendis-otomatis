@@ -1,6 +1,7 @@
 .env
 data_source/
 logs/
-!data_source/sample.tsv
+!data_source/sample/data-siswa.tsv
+!data_source/sample/data-pegawai.tsv
 !logs/.gitignore
 

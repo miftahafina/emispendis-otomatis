@@ -175,7 +175,7 @@ for siswa in siswa_list:
     sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-ckec-results']").send_keys(Keys.ENTER)
 
-    # fill zip code with fake data because it's impossible to search on its select2
+    # It's impossible to search on select2 kode pos, idk why?
     browser.find_element(By.ID, "select2-lokasi_kodepos-container").click()
     sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-lokasi_kodepos-results']").send_keys(Keys.DOWN)
@@ -191,20 +191,28 @@ for siswa in siswa_list:
     if (browser.find_element(By.ID, "swal2-html-container").text == "NIK sudah terdaftar"):
         browser.find_element(By.XPATH, "//button[@class='swal2-confirm swal2-styled']").click()
 
-        browser.execute_script("window.scrollTo(0, 0)")
-        sleep(short_waiting_time)
+        ## Not recommended
+        # browser.execute_script("window.scrollTo(0, 0)")
+        # sleep(short_waiting_time)
 
-        browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
-        browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
-        browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
-        browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
-        browser.find_element(By.NAME, "nik").send_keys(randint(1000,9999))
+        # browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
+        # browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
+        # browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
+        # browser.find_element(By.NAME, "nik").send_keys(Keys.BACK_SPACE)
+        # browser.find_element(By.NAME, "nik").send_keys(randint(1000,9999))
 
-        browser.execute_script("window.scrollTo(0, 1000)")
-        sleep(short_waiting_time)
+        # browser.execute_script("window.scrollTo(0, 1000)")
+        # sleep(short_waiting_time)
 
-        browser.find_element(By.ID, "btnKirim").click()
-        sleep(long_waiting_time)
+        # browser.find_element(By.ID, "btnKirim").click()
+        # sleep(long_waiting_time)
+
+        timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+        f = open(environ.get('log_file'), 'a')
+        f.write("\n")
+        f.write(f"""{timestamp} :: {siswa["nik"]} - {siswa["nisn"]} - {siswa["nama_siswa"]}: Gagal diinput. NIK sudah terdaftar!""")
+        f.close()
 
 
     # Check if success
@@ -218,5 +226,3 @@ for siswa in siswa_list:
         f.write("\n")
         f.write(f"""{timestamp} :: {siswa["nik"]} - {siswa["nisn"]} - {siswa["nama_siswa"]}: Berhasil diinput""")
         f.close()
-        # Repeat the proccess until the loop is done
-

@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from random import randint
 from time import sleep
 import operator
 from transform_data_pegawai import rows
@@ -133,7 +132,7 @@ for pegawai in pegawai_list:
 
     browser.find_element(By.ID, "select2-status_penugasan-container").click()
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-status_penugasan-results']").send_keys(pegawai["status_penugasan"])
-    sleep(medium_waiting_time)
+    sleep(long_waiting_time)
     browser.find_element(By.XPATH, "//input[@aria-controls='select2-status_penugasan-results']").send_keys(Keys.ENTER)
 
     browser.find_element(By.ID, "select2-tugas_utama-container").click()

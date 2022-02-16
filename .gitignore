@@ -1,4 +1,5 @@
 .env
 data_source/real/
 logs/
+!logs/.gitignore
 

@@ -13,7 +13,7 @@ load_dotenv()
 
 short_waiting_time  = 0.5
 medium_waiting_time = 0.7
-long_waiting_time   = 1.5
+long_waiting_time   = 2
 
 # Read data source
 siswa_list = rows

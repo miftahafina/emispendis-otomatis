@@ -18,7 +18,7 @@ long_waiting_time   = 3
 pegawai_list = rows
 
 
-# For captcha purpose
+# For captcha
 operators = {
     "+": operator.add,
     "-": operator.sub,
@@ -54,7 +54,7 @@ captcha_solution = operator(number_1, number_2)
 browser.find_element(By.NAME, "captcha").send_keys(captcha_solution)
 browser.find_element(By.TAG_NAME, "button").click()
 
-# Begin fill the form pegawai with data from source
+# Begin fill form pegawai with data from source
 for pegawai in pegawai_list:
     # Open form
     browser.implicitly_wait(10)

@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from random import randint
+# from random import randint
 from time import sleep
 import operator
 from transform_data_siswa import rows
@@ -12,14 +12,14 @@ from datetime import datetime
 load_dotenv()
 
 short_waiting_time  = 0.5
-medium_waiting_time = 0.7
-long_waiting_time   = 2
+medium_waiting_time = 1.5
+long_waiting_time   = 3
 
 # Read data source
 siswa_list = rows
 
 
-# For captcha purpose
+# For captcha
 operators = {
     "+": operator.add,
     "-": operator.sub,
@@ -56,7 +56,7 @@ browser.find_element(By.NAME, "captcha").send_keys(captcha_solution)
 browser.find_element(By.TAG_NAME, "button").click()
 
 
-# Begin fill the form siswa with data from source
+# Begin fill form siswa with data from source
 for siswa in siswa_list:
     # Open form
     browser.implicitly_wait(10)
@@ -137,7 +137,7 @@ for siswa in siswa_list:
     sleep(short_waiting_time)
 
 
-    # Fill data ibu column
+    # Fill data ibu columns
     browser.find_element(By.NAME, "nik_ibu").send_keys(siswa["nik_ibu"])
     browser.find_element(By.NAME, "nama_ibu").send_keys(siswa["nama_ibu"])
 
@@ -155,7 +155,7 @@ for siswa in siswa_list:
     sleep(short_waiting_time)
 
 
-    # Fill data alamat column
+    # Fill data alamat columns
     browser.find_element(By.NAME, "alamat_rumah").send_keys(siswa["alamat_rumah"])
     browser.find_element(By.NAME, "rt").send_keys(siswa["rt"])
     browser.find_element(By.NAME, "rw").send_keys(siswa["rw"])
